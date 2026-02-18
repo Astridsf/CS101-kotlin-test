@@ -1,6 +1,8 @@
 package com.example.cs101_test
 
 import com.example.cs101_test.exercises.Part1Basics
+import com.example.cs101_test.exercises.Part1Basics.greeting
+import com.example.cs101_test.exercises.Part1Basics.temperature
 import com.example.cs101_test.exercises.Part2ConditionalLogic
 import com.example.cs101_test.exercises.Part3ClassesAndObjects
 import com.example.cs101_test.exercises.Part4InheritanceAndAccessModification
@@ -24,11 +26,25 @@ fun main() {
     println("Exercise 3: Print the variables 'temperature' and 'greeting'.")
     // Part1Basics.printVariables()
     // println("Expected output: e.g., 25 and 'Hello, Kotlin!'")
+    fun printVariables() {
+        println("$temperature")
+        println("$greeting")
+    }
+    printVariables()
 
     // ---------------------- EXERCISE 4
     println("Exercise 4: Complete the function to convert a string to uppercase and return it.")
     // println(Part1Basics.convertToUpperCase("kotlin"))
     // println("Expected output: KOTLIN")
+
+
+
+    fun convertToUpperCase(input: String): String {
+        val tekstUpper = input.uppercase()
+        return tekstUpper
+    }
+    println(convertToUpperCase("kotlin"))
+
 
     // ---------------------- EXERCISE 5
     println("Exercise 5: Write a function to check if a number is even or odd and return true if even and false if odd.")
@@ -36,6 +52,16 @@ fun main() {
     // println("Expected output: true")
     // println(Part1Basics.isEven(3))
     // println("Expected output: false")
+
+    fun isEven(number: Int): Boolean {
+
+        if (number % 2 == 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+    println(isEven(7))
 
     // ---------------------- EXERCISE 6
     println("Exercise 6: Create a function to find the second largest number in a list.")

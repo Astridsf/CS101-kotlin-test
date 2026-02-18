@@ -2,56 +2,98 @@ package com.example.cs101_test.exercises
 
 object Part2ConditionalLogic {
     // ---------------------- EXERCISE 1
-    // Create a function that takes an integer as a parameter and returns "Positive", "Negative", or "Zero".
+    // Create a function that takes an integer as a parameter
+    // and returns "Positive", "Negative", or "Zero".
     fun checkNumber(number: Int): String {
-        // Your code here
-        return ""
+
+        if (number >= 1) {
+            return "Positive"
+        } else if (number < 0) {
+            return "Negative"
+        } else {
+            return "Zero"
+        }
     }
 
     // ---------------------- EXERCISE 2
     // Create a function that takes a string and prints each character on a new line.
     fun printChars(input: String) {
-        // Your code here
+        input.forEach { char ->
+            println(char)
+        }
     }
 
     // ---------------------- EXERCISE 3
     // Create a function that takes an integer and returns the sum of its digits.
     // For example if input is 45 then output should be 9 (4+5)
     fun sumDigits(number: Int): Int {
-        // Your code here
-        return 0
+
+        return number.toString().sumOf { it.digitToInt() }
     }
 
     // ---------------------- EXERCISE 4
-    // Create a function that takes a list of integers and returns a new list with only the odd numbers.
+    // Create a function that takes a list of integers and returns a
+    // new list with only the odd numbers.
     // For example if input is (1,2,3,4,5) then output should be (1,3,5)
     fun filterOddNumbers(numbers: List<Int>): List<Int> {
-        // Your code here
-        return listOf()
+
+        val oddList = mutableListOf<Int>()
+
+        for (num in numbers) {
+            if (num % 2 != 0) {
+                oddList.add(num)
+            }
+        }
+
+        return oddList
     }
 
     // ---------------------- EXERCISE 5
-    // Create a function that takes a list of strings and returns a new list with all strings in lowercase.
+    // Create a function that takes a list of strings and returns
+    // a new list with all strings in lowercase.
     fun transformToLowercase(strings: List<String>): List<String> {
-        // Your code here
-        return listOf()
+
+        val lowercaseList = mutableListOf<String>()
+
+        for (word in strings) {
+            lowercaseList.add(word.lowercase())
+        }
+
+        return lowercaseList
     }
 
     // ---------------------- EXERCISE 6
-    // Create a function that prints numbers from 1 to 10 with println(), but skips multiples of 3 using a loop.
+    // Create a function that prints numbers from 1 to 10 with println(),
+    // but skips multiples of 3 using a loop.
     // Expected output: "1", "2", "4", "5", "7", "8", "10"
+
     fun printNumbersSkipMultiplesOf3() {
-        // Your code here
+        for (number in 1..10) {
+            if (
+                number % 3 != 0) {
+                println(number)
+            }
+        }
     }
+
+
 
     // ---------------------- EXERCISE 7
     // Create a function that takes a string and returns true if it is a palindrome, false otherwise.
     // Palindrome: a word, phrase, or sequence that reads the same backwards as forwards, e.g. "madam" or "nurses run".
     // White spaces should be ignored.
     fun isPalindrome(input: String): Boolean {
-        // Your code here
-        return false
-    }
+        fun isPalindrome(input: String): Boolean {
+            //https://www.baeldung.com/kotlin/palindrome
+            if (input.length <= 1) {
+                return true
+            }
+            if (input.first() != input.last()) {
+                return false
+            }
+            return isPalindrome(input.substring(1, input.length - 1))
+        }
+
 
     // ---------------------- EXERCISE 8
     // Modify the function to have default values for both width and height and to return the area of the rectangle.
@@ -91,3 +133,4 @@ object Part2ConditionalLogic {
         return listOf()
     }
 }
+
